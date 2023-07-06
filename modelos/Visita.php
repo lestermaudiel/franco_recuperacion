@@ -16,7 +16,7 @@ class Visita extends Conexion{
 
     public function __construct($args = [] )
     {
-        $this->visita_id$visita_id = $args['visita_id$visita_id'] ?? null;
+        $this->visita_id = $args['visita_id'] ?? null;
         $this->visita_nombre = $args['visita_nombre'] ?? '';
         $this->visita_documento = $args['visita_documento'] ?? '';
         $this->visita_fecha = $args['visita_fecha'] ?? '';

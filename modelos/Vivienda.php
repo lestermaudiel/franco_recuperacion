@@ -20,7 +20,7 @@ class Vivienda extends Conexion{
     }
 
     public function guardar(){
-        $sql = "INSERT INTO vivienda(vivienda_residente, vivienda_condominio_id,) values('$this->vivienda_residente','$this->vivienda_condominio_id')";
+        $sql = "INSERT INTO vivienda(vivienda_residente, vivienda_condominio_id) values('$this->vivienda_residente','$this->vivienda_condominio_id')";
         $resultado = self::ejecutar($sql);
         return $resultado;
     }

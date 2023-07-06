@@ -2,7 +2,7 @@
 CREATE TABLE vivienda (
   vivienda_id SERIAL PRIMARY KEY NOT NULL,
   vivienda_residente VARCHAR (100) NOT NULL,
-  condominio_id INT NOT NULL,
+  vivienda_condominio_id INT NOT NULL,
   vivienda_situacion char (1) DEFAULT '1',
   FOREIGN KEY (condominio_id) REFERENCES condominio (condominio_id)
 );

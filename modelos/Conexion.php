@@ -8,7 +8,7 @@ abstract class Conexion{
 
     private static function conectar(){
         try{
-            self::$conexion = new PDO('informix:host=host.docker.internal; service=9088; database=franco_recuperacion; server=informix; protocol=onsoctcp;EnableScrollableCursors = 1','informix','in4mix'); 
+            self::$conexion = new PDO('informix:host=host.docker.internal; service=9088; database=complejo; server=informix; protocol=onsoctcp;EnableScrollableCursors = 1','informix','in4mix'); 
             self::$conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             // echo "CONECTADO";
         }catch(PDOException $e){
@@ -21,6 +21,7 @@ abstract class Conexion{
 
         return self::$conexion;
     }
+    
     public static function ejecutar($sql){
         // CONECTANDOSE A LA BD CON EL METODO CONECTAR
         self::conectar();

@@ -53,8 +53,8 @@ class Visita extends Conexion{
             $sql .= " and visita_documento = $this->visita_documento ";
         }
 
-        if($this->visita_id$visita_id != null){
-            $sql .= " and visita_id$visita_id = $this->visita_id$visita_id ";
+        if($this->visita_id != null){
+            $sql .= " and visita_id = $this->visita_id ";
         }
 
         $resultado = self::servir($sql);
@@ -78,7 +78,7 @@ class Visita extends Conexion{
     }
 
     public function eliminar(){
-        $sql = "UPDATE visita SET visita_situacion = 0 where visita_id$visita_id = $this->visita_id$visita_id";
+        $sql = "UPDATE visita SET visita_situacion = 0 where visita_id = $this->visita_id";
         
         $resultado = self::ejecutar($sql);
         return $resultado;

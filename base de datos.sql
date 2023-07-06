@@ -4,7 +4,7 @@ CREATE TABLE vivienda (
   vivienda_residente VARCHAR (100) NOT NULL,
   vivienda_condominio_id INT NOT NULL,
   vivienda_situacion char (1) DEFAULT '1',
-  FOREIGN KEY (condominio_id) REFERENCES condominio (condominio_id)
+  FOREIGN KEY (vivienda_condominio_id) REFERENCES condominio (condominio_id)
 );
 
 -- Creación de la tabla "visita"

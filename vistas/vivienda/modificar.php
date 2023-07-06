@@ -13,6 +13,17 @@ require '../../modelos/Vivienda.php';
     } catch (Exception $e2){
         $error = $e2->getMessage();
     }
+    
+require_once '../../modelos/Condominio.php';
+    try {
+        $condominio = new Condominio();
+        $condominio = $condominio->buscar();
+
+    } catch (PDOException $e) {
+        $error = $e->getMessage();
+    } catch (Exception $e2){
+        $error = $e2->getMessage();
+    }
 ?>
 <?php include_once '../../includes/header.php'?>
     <div class="container">
@@ -22,14 +33,19 @@ require '../../modelos/Vivienda.php';
                 <input type="hidden" name="vivienda_id">
                 <div class="row mb-3">
                     <div class="col">
-                        <label for="vivienda_residente">Nombre del Propietario</label>
+                        <label for="vivienda_residente">Nombre del Residente</label>
                         <input type="text" name="vivienda_residente" id="vivienda_residente" class="form-control" required>
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <div class="col">
-                        <label for="condominio_nombre">Condominio</label>
-                        <input type="text" name="condominio_nombre" id="condominio_nombre" class="form-control" required>
+                <div class="col">
+                        <label for="vivienda_condominio_id">Condominio</label>
+                        <select name="vivienda_condominio_id" id="vivienda_condominio_id" class="form-control">
+                            <option value="">SELECCIONE...</option>
+                            <?php foreach ($condominio as $key => $condominio) : ?>
+                                <option value="<?= $condominio['CONDOMINIO_ID'] ?>"><?= $condominio['CONDOMINIO_NOMBRE'] ?></option>
+                            <?php endforeach?>
+                        </select>
                     </div>
                 </div>
                 <div class="row mb-3">
